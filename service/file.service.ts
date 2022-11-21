@@ -28,13 +28,16 @@ export class FileService {
    * @returns
    */
 
-  public static filterUserData = async (
-    email?: string,
-    name?: string,
-  ) => {
+  public static filterUserData = async (email?: string, name?: string) => {
     return (await MongoService.connectToDb())
       .collection("users")
       .find({ $or: [{ email }, { name }] })
       .toArray();
+  };
+
+  public static insertOne = async (data: any) => {
+    await (await MongoService.connectToDb())
+      .collection("files")
+      .insertOne(data);
   };
 }

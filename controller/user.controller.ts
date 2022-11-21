@@ -5,6 +5,9 @@ import { UserService } from "../service/user.service";
 import { IUserObj } from "../types/interface";
 
 export default class UserController {
+  protected getUsers = async (email: string) => {
+    return UserService.findOnebyEmail(email);
+  };
   public findAll = async (req: Request, res: Response) => {
     try {
       const { email } = req.body;
