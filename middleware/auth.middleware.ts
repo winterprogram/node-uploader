@@ -15,9 +15,9 @@ export const authDecodeToken = async (
     const tokenUsefulPart = token.replace("Bearer ", "");
     const decodedToken: IAuth = jwt_decode(tokenUsefulPart);
     const { exp, name, picture, email } = decodedToken;
-    if (Date.now() >= exp * 1000) {
-      throw Error("Expired_token");
-    }
+    // if (Date.now() >= exp * 1000) {
+    //   throw Error("Expired_token");
+    // }
     Object.assign(req.body, { name, picture, email });
     next();
   } catch (error: any) {
