@@ -16,7 +16,7 @@ export const getS3Url = async (ext: string, user_id: string, name?: string) => {
       console.log(ContentType, fileName);
 
       const bucketOptions = {
-        Bucket: `assetbuckets`!,
+        Bucket: `userfileassetshow`!,
         Key: `${fileName}`,
         Expires: 60 * 5,
         ContentType,

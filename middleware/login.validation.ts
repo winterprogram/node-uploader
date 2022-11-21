@@ -1,9 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { object, string } from "@hapi/joi";
 
-
-
-
 export const loginValidation = async (
     req: Request,
     res: Response,
