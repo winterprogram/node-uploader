@@ -17,4 +17,4 @@ router.get("/start", initiliazeServer);
 router.use(authDecodeToken);
 router.get("/files/:skip/:limit", findAll);
 router.post("/upload-url", preSignedUploader);
-router.post("/upload", uploadValidation, addFileEntry);
+router.post("/upload", addFileEntry);
