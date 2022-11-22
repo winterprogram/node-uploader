@@ -19,7 +19,7 @@ export default class UploadController extends UserController {
 
   public addFileEntry = async (req: Request, res: Response) => {
     try {
-      const { email, file_link, file_type, file_name } = req.body;
+      const { email, file_link, file_type, file_name, file_size } = req.body;
       const findOnebyEmail = (await this.getUsers(email)) as any;
       const { user_id } = findOnebyEmail;
       const userFileUpload = {};
@@ -29,7 +29,8 @@ export default class UploadController extends UserController {
         created_at: Date.now(),
         file_link,
         file_type,
-        file_name
+        file_name,
+        file_size
       });
       await FileService.insertOne(userFileUpload);
       res.status(200).send({ success: true, userFileUpload });
